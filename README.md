@@ -1,5 +1,5 @@
-Magic Gatherer Scraper
-======================
+Gatherer Scraper
+================
 
 Introduction
 ------------
@@ -15,6 +15,9 @@ Requirements
 ------------
 
 * Node.js - [http://nodejs.org/] (nodejs.org)
+* MongoDB - [http://www.mongodb.org/display/DOCS/Quickstart] (mongodb.org)
+* Request - npm install request
+* Mongoose - npm install mongoose
 * Cheerio - npm install cheerio
 * Python 2.x
 
@@ -27,13 +30,16 @@ Get the ID's:
     $ python getall.py
 
 Wait a bit...
-until you see "Completely finished......."
+until you see "Completely Finished........"
 
 Then, load MongoDB (in a separate terminal window) and run the Node app: 
 
+    $ mkdir data
     $ mongod --dpath ./data/
-
     $ node app.js
+
+When it's done, just ctrl-c to get out of the Node app (for now - I'm lazy).
+I've noticed it stops at around 99.37% - probably something I should figure out eventually.
 
 It's that easy!
 
@@ -47,6 +53,7 @@ Make sure you have MongoDB running:
 
 Try logging into the MongoDB instance and running: 
 
+    $ mongo
     > use magic
     > db.cards.findOne()
 

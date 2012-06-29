@@ -18,7 +18,7 @@ var CardSchema = new Schema({
 , back : {}
 });
 
-mongo.connect('mongodb://localhost/magicdb');
+mongo.connect('mongodb://localhost/magic');
 mongo.model('Card', CardSchema);
 
 var Cards = mongo.model('Card');
