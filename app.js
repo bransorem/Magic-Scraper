@@ -53,7 +53,7 @@ q.exec(function(er, records){
           // if NOT already in db
           card_db.save(function(err){
             if (!err) { 
-              current++; sofar++;
+              ++current; ++sofar;
               var percent = (current / cards) * 100;
               percent = percent.toFixed(2);
               if (_card.front.name) 

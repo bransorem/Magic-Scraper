@@ -245,6 +245,10 @@ set_info = {
              cards=249,
              date="2011-07-15"),
 
+    'M13': S(name="Magic 2013",
+             cards=249,
+             date="2012-07-13"),
+
     'MBS': S(name="Mirrodin Besieged",
              cards=155,
              date="2011-04-02"),
@@ -343,6 +347,10 @@ set_info = {
     'ROE': S(name="Rise of the Eldrazi",
              cards=248,
              date="2010-04-23"),
+
+    'RTR': S(name="Return to Ravnica",
+             cards=274,
+             date="2012-10-05"),
 
     'S00': S(name="Starter 2000",
              cards=57,

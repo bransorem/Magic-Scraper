@@ -1,3 +1,10 @@
+ids
+data
+scan_set.pyc
+sets.pyc
+tools.pyc
+
+
 lib-cov
 *.seed
 *.log

@@ -35,7 +35,7 @@ until you see "Completely Finished........"
 Then, load MongoDB (in a separate terminal window) and run the Node app: 
 
     $ mkdir data
-    $ mongod --dpath ./data/
+    $ mongod --dbpath ./data/
     $ node app.js
 
 When it's done, just ctrl-c to get out of the Node app (for now - I'm lazy).
@@ -55,7 +55,7 @@ Try logging into the MongoDB instance and running:
 
     $ mongo
     > use magic
-    > db.cards.findOne()
+    > db.cards.findOne().pretty()
 
 You'll see the basic structure of the object.  It should look something like:
 
@@ -112,13 +112,52 @@ You'll see the basic structure of the object.  It should look something like:
 
 Looks like you have a populated database!
 
+To find a specific card by name (for instance):
+
+    > db.cards.find({ 'front.name' : 'Launch Party' }).pretty()
+
+    {
+        "setname" : "RTR",
+        "front" : {
+            "artist" : "Lucas Graciano",
+            "pt" : "None",
+            "othersets" : "None",
+            "colors" : [
+                "Black"
+            ],
+            "number" : "69",
+            "rarity" : "Common",
+            "converted" : 4,
+            "flavor" : {
+                "0" : "Life's too short to not do the things you love."
+            },
+            "set" : "Return to Ravnica",
+            "text" : {
+                "0" : "As an additional cost to cast Launch Party, sacrifice a creature.",
+                "1" : "Destroy target creature. Its controller loses 2 life."
+            },
+            "type" : "Instant",
+            "mana" : {
+                "0" : "3",
+                "1" : "Black"
+            },
+            "name" : "Launch Party"
+        },
+        "id" : 270781,
+        "_id" : ObjectId("50949863484b4a000000008c")
+    }
+
 
 
 License
 -------
 
-This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit <http://creativecommons.org/licenses/by-sa/3.0/> or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+MIT License
 
-*Some portions of code may be subject to different licensing agreements.
+Copyright (C) 2012 Bran Sorem
 
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
